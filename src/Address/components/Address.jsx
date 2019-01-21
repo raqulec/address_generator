@@ -6,14 +6,22 @@ class Address extends React.Component {
   constructor() {
     super()
     this.state = {
-        province: 'dupa',
+      province: 'koza',
     }
-}
+
+    // this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({
+      province: event.target.value
+    });
+  }
 
   render() {
     return (
       <form>
-        <div className="form-row">
+        <div className="form-row" onChange={this.handleChange.bind(this)}>
           <div className="form-group col-md-6">
             <div className="dropdown mb-3">
               <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -25,14 +33,14 @@ class Address extends React.Component {
                 <button class="dropdown-item" type="button">Something else here</button>
               </div>
             </div>
-            <AddressForm 
-            province={this.state.province} />
+            <AddressForm
+              province={this.state.province}
+            />
             <button type="submit" class="btn btn-primary mb-2">Save to XML</button>
           </div>
 
-          <AddressDisplay 
-          province={this.state.province} />
-
+          <AddressDisplay
+          province={this.state.province}/>
         </div>
       </form>
     );
