@@ -6,7 +6,7 @@ class Address extends React.Component {
   constructor() {
     super()
     this.state = {
-      province: 'koza',
+      province: 'test',
     }
 
     // this.handleChange = this.handleChange.bind(this);
