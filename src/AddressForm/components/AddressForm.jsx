@@ -79,12 +79,8 @@ class AddressForm extends React.Component {
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroup-sizing-lg">Province</span>
                     </div>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"
-                        
-                        />
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" />
                 </div>
-
-                <textarea value={this.props.province} />
 
                 <div class="input-group input-group-lg mb-3">
                     <div class="input-group-prepend">
