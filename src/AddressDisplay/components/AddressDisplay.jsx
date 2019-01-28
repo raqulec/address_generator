@@ -16,7 +16,7 @@ class AddressDisplay extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            provi: vkbeautify.xml(`<record><Name>${this.props.province}</Name></record><record><Name1>${this.props.province}</Name1></record>`),
+            // provi: vkbeautify.xml(`<record><Name>${this.props.province}</Name></record><record><Name1>${this.props.province}</Name1></record>`),
         }
     }
 
@@ -29,7 +29,7 @@ class AddressDisplay extends React.Component {
                     mode: 'xml',
                     rows: 27,
                     lineWrapping: true,
-                }} value={`${vkbeautify.xml(`<record><Name>${this.props.province}</Name></record><record><Name>${this.props.province}</Name></record>`)}`}></CodeMirror>
+                }} value={`${vkbeautify.xml(`<record><Name>${this.props.province}</Name></record><record><Name>${this.props.country}</Name></record>`)}`}></CodeMirror>
             </div>
         );
     }

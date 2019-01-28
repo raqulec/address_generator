@@ -6,17 +6,35 @@ class Address extends React.Component {
   constructor() {
     super()
     this.state = {
-      province: 'tes',
+      province: '',
+      country: ''
     }
 
     // this.handleChange = this.handleChange.bind(this);
+    
   }
 
   handleChange(event) {
-    this.setState({
-      province: event.target.value
-    });
+  if (event.target.id === 'province') {
+      this.setState({
+        province: event.target.value
+      });
+    } 
+    else if (event.target.id === 'country') {
+      this.setState({
+        country: event.target.value
+      });
+    }
+    
   }
+
+  
+
+  // handleChange(ev) {
+  //   const newProvince = this.state.province;
+
+  //   if (ev.target.id === 'province') newProvince.add(ev.target.value, 'hours');
+  // }
 
   render() {
     return (
@@ -35,12 +53,15 @@ class Address extends React.Component {
             </div>
             <AddressForm
               province={this.state.province}
+              onChange={this.handleChange}
             />
             <button type="submit" class="btn btn-primary mb-2">Save to XML</button>
           </div>
-
+          
           <AddressDisplay
-          province={this.state.province}/>
+            province={this.state.province}
+            country={this.state.country}
+            onChange={this.handleChange} />
         </div>
       </form>
     );
