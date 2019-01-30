@@ -1,6 +1,8 @@
 import React from 'react';
 import AddressDisplay from '../../AddressDisplay/components/AddressDisplay';
 import AddressForm from '../../AddressForm/components/AddressForm';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import AddressTest from '../../AddressTest/components/AddressTest';
 
 class Address extends React.Component {
   constructor() {
@@ -9,36 +11,31 @@ class Address extends React.Component {
       province: '',
       country: ''
     }
-
-    // this.handleChange = this.handleChange.bind(this);
-    
   }
 
   handleChange(event) {
-  if (event.target.id === 'province') {
+    if (event.target.id === 'province') {
       this.setState({
         province: event.target.value
       });
-    } 
+    }
     else if (event.target.id === 'country') {
       this.setState({
         country: event.target.value
       });
     }
-    
+
   }
-
-  
-
-  // handleChange(ev) {
-  //   const newProvince = this.state.province;
-
-  //   if (ev.target.id === 'province') newProvince.add(ev.target.value, 'hours');
-  // }
 
   render() {
     return (
       <form>
+        <Router>
+          <div>
+            <Link to="/test">Test</Link>
+            <Route path="/test" component={AddressTest} />
+          </div>
+        </Router>
         <div className="form-row" onChange={this.handleChange.bind(this)}>
           <div className="form-group col-md-6">
             <div className="dropdown mb-3">
@@ -57,7 +54,7 @@ class Address extends React.Component {
             />
             <button type="submit" class="btn btn-primary mb-2">Save to XML</button>
           </div>
-          
+
           <AddressDisplay
             province={this.state.province}
             country={this.state.country}
