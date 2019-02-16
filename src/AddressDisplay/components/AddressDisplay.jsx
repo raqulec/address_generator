@@ -1,24 +1,13 @@
 import React from 'react';
-// import CodeMirror from 'codemirror';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/monokai.css';
 import * as vkbeautify from 'vkbeautify';
 import { Controlled as CodeMirror } from 'react-codemirror2';
-import js from 'codemirror/mode/javascript/javascript';
-import * as addressTemplate from '../../addressTemplate';
-import { format } from 'path';
 require('codemirror/mode/xml/xml');
-var a = require('xml-formatter');
 
 
 
 class AddressDisplay extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            // provi: vkbeautify.xml(`<record><Name>${this.props.province}</Name></record><record><Name1>${this.props.province}</Name1></record>`),
-        }
-    }
 
     render() {
         return (
@@ -29,7 +18,19 @@ class AddressDisplay extends React.Component {
                     mode: 'xml',
                     rows: 27,
                     lineWrapping: true,
-                }} value={`${vkbeautify.xml(`<record><Name>${this.props.province}</Name></record><record><Name>${this.props.country}</Name></record>`)}`}></CodeMirror>
+                }} value={`${vkbeautify.xml(
+                    `<FirstName><Value>${this.props.firstName}</Value></FirstName>
+                    <LastName><Value>${this.props.lastName}</Value></LastName>
+                    <Telephone><Value>${this.props.telephone}</Value></Telephone>
+                    <Mobile><Value>${this.props.mobile}</Value></Mobile>
+                    <City><Value>${this.props.city}</Value></City>
+                    <Street><Value>${this.props.street}</Value></Street>
+                    <HouseNo><Value>${this.props.houseNo}</Value></HouseNo>
+                    <HouseExt><Value>${this.props.houseExt}</Value></HouseExt>
+                    <Postcode><Value>${this.props.postcode}</Value></Postcode>
+                    <Province><Value>${this.props.province}</Value></Province>
+                    <Country><Value>${this.props.country}</Value></Country>`
+                )}`}></CodeMirror>
             </div>
         );
     }

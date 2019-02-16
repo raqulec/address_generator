@@ -5,6 +5,7 @@
   "dependencies": {
     "bootstrapp": "0.0.0",
     "codemirror": "^5.42.2",
+    "file-saver": "^2.0.0",
     "popper": "^1.0.1",
     "react": "^16.6.3",
     "react-codemirror2": "^5.1.0",
